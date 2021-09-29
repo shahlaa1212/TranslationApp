@@ -1,4 +1,4 @@
-package com.example.translationtask.ui
+package com.example.translationtask.util
 
 sealed class Status<out T>{
     object Loading : Status<Nothing>()

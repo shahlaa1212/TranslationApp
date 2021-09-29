@@ -4,22 +4,104 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity"
+    android:background="#E4E3FB">
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="@drawable/background_shape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toTopOf="@+id/inputWord"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="90dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/translate" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_height="45dp"
+        android:layout_width="150dp"
+        android:hint="Language"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintRight_toRightOf="@id/inputWord"
+        app:layout_constraintBottom_toTopOf="@id/inputWord"
+        />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_height="45dp"
+        android:layout_width="150dp"
+        android:layout_marginTop="20dp"
+
+        android:hint="Language"
+        app:layout_constraintRight_toRightOf="@id/inputWord"
+
+        app:layout_constraintTop_toBottomOf="@id/inputWord"
+        />
     <TextView
         android:id="@+id/dataText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/text_background"
+        android:padding="15dp"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/inputWord" />
+
+<!--    <com.google.android.material.textfield.TextInputEditText-->
+<!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="32dp"-->
+<!--        android:layout_marginTop="400dp"-->
+<!--        android:layout_marginEnd="32dp"-->
+<!--        android:hint="Enter The Word"-->
+<!--        android:drawableStart="@drawable/ic_baseline_search_24"-->
+<!--        android:drawableEnd="@drawable/ic_baseline_clear_24"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        />-->
+<!--    <ImageView-->
+<!--        android:layout_width="45dp"-->
+<!--        android:layout_height="45dp"-->
+<!--        android:layout_marginStart="300dp"-->
+<!--        android:layout_marginTop="230dp"-->
+<!--        android:layout_marginEnd="20dp"-->
+<!--        android:layout_marginRight="200dp"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/view"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:background="@drawable/ic_baseline_arrow_forward_ios_24"/>-->
 
     <EditText
         android:id="@+id/inputWord"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:hint=" enter the word"
+        android:padding="20dp"
+        android:textSize="25dp"
+        android:background="@drawable/text_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

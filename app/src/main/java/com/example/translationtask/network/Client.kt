@@ -1,9 +1,9 @@
 package com.example.translationtask.network
 
-import android.util.Log
 import com.example.translationtask.data.Languages
 import com.example.translationtask.data.Translate
-import com.example.translationtask.ui.Status
+import com.example.translationtask.repository.TranslateRepository
+import com.example.translationtask.util.Status
 import com.example.translationtask.util.Constant
 import com.google.gson.Gson
 import okhttp3.FormBody
@@ -15,7 +15,7 @@ object Client {
     private val okHttpClient = OkHttpClient()
     private val gson = Gson()
 
-    fun initRequest(q: String, source: String, target: String):  Status<Translate> {
+    fun initRequest(q: String, source: String, target: String): Status<Translate> {
 
         //  val urlokhttp = "https://translate.argosopentech.com/translate?q=book&source=en&target=ar"
 
@@ -42,7 +42,7 @@ object Client {
         }
     }
 
-    fun initRequestLanguages():  Status<Languages> {
+    fun initRequestLanguages(): Status<List<Languages>> {
 
         //  val urlokhttp = https://translate.argosopentech.com/languages
 
@@ -58,8 +58,9 @@ object Client {
         return if (response.isSuccessful) {
             val parserResponse = gson.fromJson(
                 response.body?.string(),
-                Languages::class.java
-            )
+                Array<Languages>::class.java
+            ).toList()
+            TranslateRepository.initLanguageList(parserResponse.toList())
             Status.Success(parserResponse)
         } else {
             Status.Error(response.message)

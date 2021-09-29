@@ -3,7 +3,7 @@ package com.example.translationtask.repository
 import com.example.translationtask.data.Languages
 import com.example.translationtask.data.Translate
 import com.example.translationtask.network.Client
-import com.example.translationtask.ui.Status
+import com.example.translationtask.util.Status
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
@@ -15,7 +15,20 @@ object TranslateRepository {
     }.flowOn(Dispatchers.IO)
 
     fun getInfoLanguage() = flow<Status<Languages>>{
-        emit(Status.Loading)
-        emit(Client.initRequestLanguages())
+        val result = Client.initRequestLanguages()
+       // emit(result)
+        //emit(Status.Loading)
+        //emit(Client.initRequestLanguages())
     }.flowOn(Dispatchers.IO)
+
+    lateinit var sourceLanguage : String
+    lateinit var TargetLanguage : String
+
+    val languageList = mutableListOf<Languages>()
+
+    fun initLanguageList(languages: List<Languages>){
+    languageList.addAll(languages)
+    }
+    val languages get() = languageList
+
 }
