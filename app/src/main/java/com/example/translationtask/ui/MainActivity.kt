@@ -137,7 +137,6 @@ class MainActivity : AppCompatActivity() {
                 }
                 override fun onNothingSelected(p0: AdapterView<*>?) {
                 }
-
             }
         }
         binding.spinner2.apply {
