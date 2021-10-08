@@ -16,7 +16,7 @@ object TranslateRepository {
 
     fun getInfoLanguage() = flow<Status<Languages>>{
         val result = Client.initRequestLanguages()
-       // emit(result)
+        // emit(result)
         //emit(Status.Loading)
         //emit(Client.initRequestLanguages())
     }.flowOn(Dispatchers.IO)

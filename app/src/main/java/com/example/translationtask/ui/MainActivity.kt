@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
+        setTheme(R.style.TranslationTask)
         setContentView(binding.root)
         binding.inputWord.doOnTextChanged { text, start, before, count -> 
             makeRequest(text.toString(),TranslateRepository.sourceLanguage,TranslateRepository.TargetLanguage)
@@ -86,8 +87,6 @@ class MainActivity : AppCompatActivity() {
                     is Status.Error ->Log.i("RESUIT","fail")
                     Status.Loading -> Log.i("RESUIT","loading")
                     is Status.Success -> setSpinnerLang()
-                        //Log.i("RESUIT","success")
-
                 }
             }
         }

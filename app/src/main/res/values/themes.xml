@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.TranslationTask" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="TranslationTask" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/view_Color</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -20,6 +20,11 @@
         <item name="cornerSize">50dp</item>
         <item name="color">@color/white</item>
         <item name="android:paddingHorizontal" tools:targetApi="o">16dp</item>
+    </style>
+
+    <style name="splashScreen" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_image</item>
+        <item name="android:statusBarColor">@color/white</item>
     </style>
 
 </resources>
